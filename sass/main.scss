@@ -1,0 +1,388 @@
+@import 'variables';
+@import 'placeholders';
+@import 'mixin';
+@import '_reset.scss';
+@import 'guias';
+@import 'collapse';
+@import 'form';
+
+.nature__header {
+    @extend %imgposition;
+    background-image: $gradient,
+        url(../img/nature1.jpg);
+
+}
+
+.tips__header {
+    @extend %imgposition;
+    background-image: $gradient3,
+        url(../img/tips.jpg);
+}
+
+.contact__header {
+    @extend %imgposition;
+    background-image: $gradient,
+        url(../img/contact.jpg);
+}
+
+.cities__header {
+    @extend %imgposition;
+    background-image: $gradient,
+        url(../img/ncity1.jpg);
+}
+
+.guides__header{
+    @extend %imgposition;
+    background-image: $gradient,
+        url(../img/guide1.jpg);
+}
+
+header {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 15vh 60vh 25vh;
+    grid-template-areas:
+        "menu"
+        "titulo"
+        "subtitulo";
+    height: 100vh;
+    @extend %imgposition;
+
+    background-image: $gradient,
+        url(../img/stars1.jpg);
+
+
+    .open {
+        display: none;
+    }
+
+    .navbar {
+        grid-area: menu;
+        margin-right: 0 !important;
+
+        .close {
+            display: none;
+        }
+
+        .navbar__menu {
+            width: 100vw;
+
+            @include flex(flex, row, space-around, center);
+
+            .hiddenlogo {
+                display: none;
+            }
+
+            .navbar__menuItem {
+                width: 10%;
+                text-align: center;
+
+                a {
+                    color: white;
+                    font-size: 23px;
+                    transition: color 0.5s;
+                    white-space: nowrap;
+                    font-weight: 300;
+
+                    &:hover {
+                        color: $sky;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .logos {
+        grid-area: titulo;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 350px;
+        }
+    }
+
+
+    h1 {
+        grid-area: titulo;
+        font-size: 60px;
+        text-align: center;
+        font-weight: 100;
+        padding-top: 15vh;
+    }
+
+    h2 {
+        grid-area: subtitulo;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 100;
+    }
+}
+
+.index__header {
+    h1 {
+        letter-spacing: 6px;
+    }
+}
+
+.intro {
+    height: 200px;
+    margin: 5% 30% 0 30% !important;
+    text-align: center;
+
+    .intro__title {
+        font-size: 30px;
+    }
+
+    .intro__text {
+        margin-top: 5%;
+    }
+}
+
+.index__nature {
+
+    @include flex(flex, column, center, center);
+    height: 100vh;
+    @extend %imgposition;
+    background-image: $gradient2,
+        url(../img/route2.jpg);
+
+    .nature__div {
+        display: grid;
+        grid-template-columns: 35% 48%;
+        grid-template-rows: 60px 320px;
+        grid-template-areas:
+            "img tit"
+            "img sub";
+        grid-column-gap: 50px;
+        margin-left: 10% !important;
+
+        .index__nature__img {
+            grid-area: img;
+            background-image: url(../img/route2.jpg);
+            @extend %imgposition;
+            @extend %boxshadow;
+        }
+
+        .index__nature__title {
+            color: #aaa;
+            grid-area: tit;
+            border-bottom: solid #888 2px;
+            font-size: 30px;
+        }
+
+        .index__nature__text {
+            line-height: 30px;
+            padding-top: 25px;
+            text-align: justify;
+            line-height: 40px;
+        }
+    }
+}
+
+.index__cities {
+    @include flex(flex, column, center, center);
+    height: 100vh;
+    @extend %imgposition;
+    background-image: $gradient3,
+        url(../img/ncity9.jpg);
+
+    .cities__div {
+        display: grid;
+        grid-template-columns: 48% 35%;
+        grid-template-rows: 60px 320px;
+        grid-template-areas:
+            "tit img"
+            "sub img";
+        grid-column-gap: 50px;
+        margin-left: 10% !important;
+
+        .index__cities__img {
+            grid-area: img;
+            background-image: url(../img/ncity9.jpg);
+            @extend %imgposition;
+            @extend %boxshadow;
+        }
+
+        .index__cities__title {
+            color: #aaa;
+            grid-area: tit;
+            border-bottom: solid #888 2px;
+            font-size: 30px;
+            text-align: right;
+        }
+
+        .index__cities__text {
+            line-height: 30px;
+            padding-top: 25px;
+            text-align: justify;
+            line-height: 40px;
+        }
+    }
+}
+
+.prefooter {
+    margin-top: 70px;
+    height: 100vh;
+    @extend %imgposition;
+    background-image: $gradient4,
+        url(../img/footer1.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .prefooter__title {
+        font-weight: 100;
+        font-size: 30px;
+    }
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 370px 10px 600px;
+    grid-template-rows: 50px;
+    grid-template-areas: "par linea menu";
+    justify-content: center;
+    margin-top: 20px;
+
+    .footerpar {
+        grid-area: par;
+    }
+
+    .linea {
+        grid-area: linea;
+    }
+
+    .menufooter {
+        @include flex(flex, row, space-around, flex-start);
+    }
+}
+
+
+.guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15vh 0 15vh 4vw !important;
+    border-radius: 20px;
+    width: 90vw;
+    background-color: #222;
+
+
+    .guide__title {
+        width: 100%;
+        font-size: 50px;
+        font-weight: 300;
+        letter-spacing: 10px;
+        padding: 5vh 0 5vh 0;
+        display: flex;
+        flex-direction: row;
+
+        &:before,
+        &:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 2px solid #FFF;
+            margin: auto 30px;
+        }
+    }
+
+    .guide__about {
+        background-color: rgba(135, 206, 250, 0.3);
+        width: 90%;
+        margin-top: 3%;
+        border-radius: 10px;
+
+        h4 {
+            padding-bottom: 1%;
+        }
+
+    }
+
+    .about1 {
+        background-color: rgba(200, 200, 200, 0.3);
+    }
+
+    .about2 {
+        background-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .about4 {
+        background-color: rgba(255, 0, 0, 0.25);
+    }
+
+    .about5 {
+        background-color: rgba(127, 255, 212, 0.3);
+    }
+
+    .about6 {
+        background-color: rgba(0, 255, 0, 0.15);
+    }
+
+    .about7 {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .about8 {
+        background-color: rgba(104, 70, 39, 0.5);
+    }
+
+    .carousel {
+        width: 60vw;
+        margin: 0;
+
+        .carousel-indicators {
+            margin-left: 15% !important;
+        }
+
+        .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px !important;
+        }
+
+        .carousel-inner {
+            border-radius: 15px;
+        }
+    }
+
+    .guide__subtitle {
+        width: 100%;
+        font-size: 30px;
+        font-weight: 50;
+        text-align: center;
+        padding: 5vh 0 5vh 0;
+        display: flex;
+        flex-direction: row;
+
+        &:before {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #FFF;
+            margin: auto 40px auto 150px;
+        }
+
+        &:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #FFF;
+            margin: auto 150px auto 40px;
+        }
+    }
+
+    p {
+        padding: 1vh 4vw 1vh 4vw;
+
+        .highlight {
+            font-weight: bold;
+        }
+    }
+}
+
+
+@import 'mobile';

@@ -1,0 +1,148 @@
+.cities__title {
+    height: 15vh;
+    text-align: center;
+    padding-top: 70px;
+    font-size: 40px;
+    font-weight: 200;
+}
+
+.cities__guides {
+    height: 100vh;
+    @include flex(flex, row, center, center);
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-size: cover;
+        width: 25%;
+        height: 450px;
+
+        h4 {
+            font-size: 30px;
+            padding-bottom: 20px;
+            color: white;
+            transition: color 0.8s;
+        }
+    }
+
+    .cities__guide1 {
+        background-image: $gradient__guides,
+            url(../img/london1.jpg);
+        transition: width 0.5s;
+        background-position: left;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide2 {
+        background-image: $gradient__guides,
+            url(../img/tokyo1.jpg);
+        transition: width 0.5s;
+        background-position: center;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide3 {
+        background-image: $gradient__guides,
+            url(../img/paris1.jpg);
+        transition: width 0.5s;
+        background-position: center;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide4 {
+        background-image: $gradient__guides,
+            url(../img/moscow1.jpg);
+        transition: width 0.5s;
+        background-position: right;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide5 {
+        background-image: $gradient__guides,
+            url(../img/01phiphi.jpg);
+        transition: width 0.5s;
+        background-position: center;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide6 {
+        background-image: $gradient__guides,
+            url(../img/01patagonia.jpg);
+        transition: width 0.5s;
+        background-position: center;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide7 {
+        background-image: $gradient__guides,
+            url(../img/01boreal.jpg);
+        transition: width 0.5s;
+        background-position: center;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+
+    .cities__guide8 {
+        background-image: $gradient__guides,
+            url(../img/peru2.jpg);
+        transition: width 0.5s;
+        background-position: center;
+
+        &:hover {
+            width: 70vw;
+        }
+
+        &:hover h4 {
+            color: $sky;
+        }
+    }
+}
