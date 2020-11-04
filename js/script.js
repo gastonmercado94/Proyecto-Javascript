@@ -55,3 +55,16 @@ carritoDeCompras.agregarCompra(compra2);
 
 console.log("Carrito de compras: ", carritoDeCompras);
 console.log("El precio total es: ", carritoDeCompras.calcularTotal());
+
+
+// MODAL CON DOM 
+
+function OpenModal(){
+    var modal = document.getElementById("Modal");
+    modal.style.display="block";
+}
+
+function CloseModal(){
+    var modal = document.getElementById("Modal");
+    modal.style.display="none";
+}
