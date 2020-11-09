@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="img/logo3.png">
+    
 </head>
 
 <body class="body">
@@ -56,28 +57,28 @@
                 <form action="">
 
                     <div>
-                        <input type="text" name="name" placeholder="Name"
+                        <input id="input__name" type="text" name="name" placeholder="Name" onchange="ChangeInputName()"
                             class="wow animate__animated animate__fadeInRight animate__slow" data-wow-delay="0s">
                     </div>
 
                     <div>
-                        <input type="text" name="surname" placeholder="Surname"
+                        <input id="input__lastname" type="text" name="surname" placeholder="Surname"  onchange="ChangeInputLastname()"
                             class="wow animate__animated animate__fadeInRight animate__slow" data-wow-delay="0.1s">
                     </div>
 
                     <div>
-                        <input type="email" name="email" placeholder="Email"
+                        <input id="input__mail" type="email" name="email" placeholder="Email" onchange="ChangeInputMail()"
                             class="wow animate__animated animate__fadeInRight animate__slow" data-wow-delay="0.2s">
                     </div>
 
                     <div>
-                        <textarea name="Mensaje" id="" cols="30" rows="10" placeholder="Leave your message"
+                        <textarea id="input__msg" name="Mensaje" id="" cols="30" rows="10" onchange="ChangeInputMsg()" placeholder="Leave your message"
                             class="wow animate__animated animate__fadeInRight animate__slow"
                             data-wow-delay="0.3s"></textarea>
                     </div>
 
                     <div class="botones">
-                        <input type="submit" value="Send"
+                        <input id="button__send" type="submit" value="Send" onclick="SendAlert()"
                             class="wow animate__animated animate__fadeInRight animate__slow"
                             data-wow-delay="0.8s"><input type="reset" value="Clear"
                             class="wow animate__animated animate__fadeInRight animate__slow" data-wow-delay="0.4s">
@@ -124,6 +125,7 @@
     <script>
         new WOW().init();
     </script>
+    <script src="js/scriptform.js"></script>
 </body>
 
 </html>
