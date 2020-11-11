@@ -288,6 +288,73 @@ nav {
 .center form input[type=submit] {
   margin-right: 20px;
 }
+#mainProductContainer {
+  margin: 50px 0;
+}
+
+#productsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background: #444;
+  width: 30%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  height: 200px;
+}
+.productCard div {
+  margin: 8px 0;
+}
+
+.showcartdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #444;
+  width: 70%;
+  margin: 10px 10px;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+.addButton {
+  background-color: #222;
+  color: lightskyblue;
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 250;
+  transition: 0.2s;
+}
+.addButton:focus {
+  border: none;
+  outline: none;
+}
+.addButton:hover {
+  background-color: #111;
+}
+
+.productName {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+#mainShowCart {
+  margin: 0 30px !important;
+}
+
 .nature__header {
   background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(../img/nature1.jpg);
 }
@@ -665,6 +732,7 @@ footer .menufooter {
 
 .cart {
   width: 50px;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
