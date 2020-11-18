@@ -7,14 +7,10 @@ console.log(products);
 const cart = [];
 
 
-// llamo a mi div contenedor del html
-const productsContainer = document.getElementById('productsContainer')
-const showcart = document.getElementById('showcart');
-
-
 products.forEach( product => {
     let productCard = createProductCard(product);
-    productsContainer.appendChild(productCard);
+    $("#productsContainer").append(productCard);
+ 
 })
 
 function createProductCard(product) {
@@ -22,6 +18,8 @@ function createProductCard(product) {
     productCard.id = product.id;
     productCard.classList = 'productCard';
     
+
+
 let nameDiv = document.createElement('div');
 nameDiv.innerHTML = product.name;
 nameDiv.classList = 'productName';
@@ -37,6 +35,8 @@ let addButton = document.createElement('button');
 addButton.innerHTML = "Add product";
 addButton.classList = 'addButton';
 
+// $(".addButton").click(function(){
+
 addButton.addEventListener('click', ()=> {
     cart.push(product);
     console.log(cart);
@@ -47,6 +47,7 @@ addButton.addEventListener('click', ()=> {
     showcartdiv.classList = 'showcartdiv';
     
     let cartName = document.createElement('div');
+    cartName.classList = cartName;
     cartName.innerHTML = product.name;
     
     let cartPrice = document.createElement('div');
@@ -55,13 +56,27 @@ addButton.addEventListener('click', ()=> {
     let cartQuantity = document.createElement('div');
     cartQuantity.innerHTML = "Quantity:";
 
-    showcart.appendChild(showcartdiv);
+
+    $("#showcart").append(showcartdiv);
+   
     showcartdiv.appendChild(cartName);
     showcartdiv.appendChild(cartPrice);
     showcartdiv.appendChild(cartQuantity);
 
+   
 
-})
+    // $(".showcartdiv").append(cartName);
+    // $(".showcartdiv").append(cartPrice);
+    // $(".showcartdiv").append(cartQuantity);
+
+
+});
+
+// $(".productCard").append(nameDiv);
+// $(".productCard").append(priceDiv);
+// $(".productCard").append(stockDiv);
+// $(".productCard").append(addButton);
+
 
 productCard.appendChild(nameDiv);
 productCard.appendChild(priceDiv);
