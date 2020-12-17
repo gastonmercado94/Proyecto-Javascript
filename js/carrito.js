@@ -2,8 +2,16 @@
 getProducts();
 
 // creo array del carrito
-let packageCounter = 0 
-let cart = [];
+let cart = loadCartFromLocalStorage();
+showCart();
+
+function loadCartFromLocalStorage() {
+    let cart = localStorage.getItem('cart');
+    if(cart != ''){
+        return JSON.parse(cart);
+    }
+    return [];
+}
 
 function addProducts(products) {
     products.forEach( product => {
@@ -47,17 +55,15 @@ function createProductCard(product) {
 
     addButton.addEventListener('click', ()=> {
         if (inputQuantity.value<1){
-                alert("ingrese cantidad valida");
+            alert("Please enter a valid quantity");
         } else {
-        const package = new Package(product, inputQuantity.value, packageCounter);
-        packageCounter = packageCounter + 1;
-        cart.push(package);
-        console.log(cart);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        showCart(cart);
-
-
-}});
+            addPackage(product, Number(inputQuantity.value));
+            console.log(cart);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            showCart(cart);
+        }
+    }
+);
 
     productCard.appendChild(nameDiv);
     productCard.appendChild(priceDiv);
@@ -70,6 +76,22 @@ function createProductCard(product) {
     return productCard;
 }
 
+function addPackage(product, quantity) {
+    let newProduct = cart.some(package => package.product.id == product.id);
+    console.log('newProduct: ', newProduct);
+    if (newProduct){
+        cart = cart.map (package =>{
+            if (package.product.id == product.id){
+                return new Package (product, quantity + package.quantity);
+            }
+            return package;
+        })
+    } else {
+        const package = new Package(product, quantity);
+        cart.push(package);
+    }
+}
+
 function showCart(){
 
     $("#showcart").remove();
@@ -77,7 +99,25 @@ function showCart(){
     showcart.id = "showcart";
     $("#mainShowCart").append(showcart);
 
+    let buyContainer = document.createElement('div');
+    buyContainer.id = "buyContainer";
+
+    let totalPriceDiv = document.createElement('div');
+    totalPriceDiv.id = "totalPrice";
+
+    let buyButton = document.createElement('button');
+        buyButton.innerHTML = "Buy";
+        buyButton.id = "buyButton";
+
+        buyButton.addEventListener('click', ()=> {
+            buy();
+        });
+
+
+    let totalPrice = 0;
+
     cart.forEach( package => {
+        totalPrice = totalPrice + package.quantity*package.product.price;
 
         let showcartdiv = document.createElement('div');
         showcartdiv.classList = 'showcartdiv';
@@ -98,7 +138,7 @@ function showCart(){
         removeButton.id = package.product.id ;
 
         removeButton.addEventListener('click', ()=> {
-            removePackage(package.id);
+            removePackage(package.product.id);
 
         });
 
@@ -108,21 +148,39 @@ function showCart(){
         showcartdiv.appendChild(cartPrice);
         showcartdiv.appendChild(cartQuantity);
         showcartdiv.appendChild(removeButton);
-
     })
-}
 
-class Package {
-    constructor(product, quantity, id){
-        this.product = product;
-        this.quantity = quantity;
-        this.id = id;
+    if(cart.length != 0){
+        showcart.appendChild(buyContainer);
+        buyContainer.appendChild(totalPriceDiv);
+        totalPriceDiv.innerText = "Total Price: $" + totalPrice;
+        buyContainer.appendChild(buyButton);
     }
 }
 
-function removePackage(packageId){
-    cart = cart.filter(package => package.id != packageId);
+class Package {
+    constructor(product, quantity){
+        this.product = product;
+        this.quantity = quantity;
+    }
+}
+
+function removePackage(productId){
+    cart = cart.filter(package => package.product.id != productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
     showCart();
+}
+
+function buy(){
+    console.log(cart);
+    if(cart.length == 0){
+        alert('Your cart is empty');
+    } else {
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    showCart();
+    alert('Congratulations on your purchase!');
+    }
 }
 
 

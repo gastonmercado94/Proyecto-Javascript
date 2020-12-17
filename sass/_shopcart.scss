@@ -1,0 +1,107 @@
+#mainProductContainer{
+    margin:50px 0 ;
+}
+
+#productsContainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.productCard{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    background:#444;
+    width: 30%;
+    text-align: center;
+    color:white;
+    padding:10px;
+    border-radius:10px;
+    height:250px;
+
+    div{
+        margin:8px 0;
+    }
+}
+
+.showcartdiv{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #444;
+    width:70%;
+    margin: 10px 10px;
+    padding: 10px 0;
+    border-radius:15px;
+}
+
+.addButton{
+    background-color: #222;
+    color:lightskyblue;
+    width:300px;
+    height:40px;
+    border: none;
+    border-radius: 15px;
+    font-weight: 250;
+transition:0.2s;
+    &:focus{
+        border:none;
+        outline: none;
+    }
+
+    &:hover{
+        background-color: #111;
+    }
+}
+
+.productName{
+    font-size:30px;
+    font-weight: 300;
+}
+
+#mainShowCart{
+    margin:0 30px !important;
+}
+
+.inputQuantity{
+    background-color: rgba(255,255,255,0.1);
+    border: solid white 1px;
+    border-radius: 5px;
+    color:white;
+    margin: 10px 0 10px 20px !important;
+    text-align: center;
+    width: 60px;
+}
+
+.removeButton{
+    background-color: #222;
+    color:lightskyblue;
+    width:100px;
+    height:40px;
+    border: none;
+    border-radius: 15px;
+    font-weight: 250;
+    transition:0.2s;
+    &:focus{
+        border:none;
+        outline: none;
+    }
+
+    &:hover{
+        background-color: #111;
+    }
+}
+
+
+.inputQuantityDiv{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
