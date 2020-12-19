@@ -7,7 +7,7 @@ showCart();
 
 function loadCartFromLocalStorage() {
     let cart = localStorage.getItem('cart');
-    if(cart != ''){
+    if(cart != '' && cart != null){
         return JSON.parse(cart);
     }
     return [];
